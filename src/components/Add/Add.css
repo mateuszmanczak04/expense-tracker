@@ -1,0 +1,30 @@
+.add__container {
+  margin-top: 5rem;
+}
+
+.add__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.add__input {
+  border: none;
+  outline: none;
+  padding: 0.25rem 1rem;
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.05);
+  width: 80%;
+  max-width: 500px;
+}
+
+.add__button {
+  border: none;
+  padding: 0.5rem 2rem;
+  background: var(--color-primary);
+  border-radius: 1rem;
+  width: 80%;
+  max-width: 500px;
+}

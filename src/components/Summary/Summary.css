@@ -1,0 +1,30 @@
+.summary__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.summary__container h1 {
+  font-weight: 400;
+  border-radius: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: var(--color-black);
+}
+
+.summary__container h1:nth-child(1) {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 600px) {
+  .summary__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .summary__container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
