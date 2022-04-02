@@ -27,7 +27,7 @@ const History = () => {
 
   return (
     <>
-      {history.length > 0 ? (
+      {history ? (
         <section className='history__container'>{historyElements}</section>
       ) : (
         <p style={{ fontSize: '1.5rem', marginTop: '3rem' }}>

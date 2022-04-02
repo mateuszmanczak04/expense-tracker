@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { categories } from 'data/data';
 
 const AppContext = createContext(null);
@@ -7,6 +7,10 @@ export const AppProvider = ({ children }) => {
   const [history, setHistory] = useState(
     JSON.parse(localStorage.getItem('history'))
   );
+
+  if (history === null) {
+    setHistory([]);
+  }
 
   const addElementToHistory = (element) => {
     setHistory([...history, element]);
