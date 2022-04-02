@@ -1,12 +1,3 @@
-export const history = [
-  {
-    id: 0,
-    title: 'Example',
-    category: 'party',
-    price: '50',
-  },
-];
-
 export const categories = [
   {
     name: 'party',

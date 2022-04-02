@@ -1,20 +1,12 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import {
-  history as historyData,
-  categories as categoriesData,
-} from 'data/data';
+import { categories } from 'data/data';
 
 const AppContext = createContext(null);
 
 export const AppProvider = ({ children }) => {
-  const [history, setHistory] = useState(historyData);
-  const [categories, setCategories] = useState(categoriesData);
-
-  useEffect(() => {
-    setHistory(JSON.parse(localStorage.getItem('history')));
-  }, []);
-
-  const [nextID, setNextID] = useState(historyData.length);
+  const [history, setHistory] = useState(
+    JSON.parse(localStorage.getItem('history'))
+  );
 
   const addElementToHistory = (element) => {
     setHistory([...history, element]);
@@ -27,10 +19,6 @@ export const AppProvider = ({ children }) => {
     localStorage.setItem('history', JSON.stringify(newHistory));
   };
 
-  useEffect(() => {
-    setNextID((n) => n + 1);
-  }, [history]);
-
   return (
     <AppContext.Provider
       value={{
@@ -38,7 +26,6 @@ export const AppProvider = ({ children }) => {
         categories,
         addElementToHistory,
         removeElementFromHistory,
-        nextID,
       }}>
       {children}
     </AppContext.Provider>

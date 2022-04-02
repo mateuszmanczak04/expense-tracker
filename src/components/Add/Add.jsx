@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
 import './Add.css';
-import { categories } from 'data/data';
 import { useAppContext } from 'AppContext';
 
 const Add = () => {
-  const {
-    history,
-    categories,
-    addElementToHistory,
-    removeElementFromHistory,
-    nextID,
-  } = useAppContext();
+  const { categories, addElementToHistory } = useAppContext();
   const [title, setTitle] = useState('');
   const [category, setCategory] = useState(categories[0].name);
   const [price, setPrice] = useState('');
@@ -29,7 +22,8 @@ const Add = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addElementToHistory({ id: nextID, title, category, price });
+    const id = new Date().getTime();
+    addElementToHistory({ id, title, category, price });
     setTitle('');
     setCategory(categories[0].name);
     setPrice('');
@@ -71,7 +65,7 @@ const Add = () => {
           className='add__input'
           value={price}
           onChange={handlePriceChange}
-          max='10000'
+          max='99999'
         />
         <button type='submit' className='add__button'>
           Add
